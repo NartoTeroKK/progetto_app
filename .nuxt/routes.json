@@ -1,12 +1,5 @@
 [
   {
-    "name": "inspire",
-    "path": "/inspire",
-    "component": "C:\\\\Users\\\\UtenteHP\\\\Documents\\\\UNIBO\\\\3.1_Ingegneria del Software\\\\Vuetify\\\\progetto_app\\\\pages\\\\inspire.vue",
-    "chunkName": "pages/inspire",
-    "_name": "_2e382a3f"
-  },
-  {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\UtenteHP\\\\Documents\\\\UNIBO\\\\3.1_Ingegneria del Software\\\\Vuetify\\\\progetto_app\\\\pages\\\\index.vue",
