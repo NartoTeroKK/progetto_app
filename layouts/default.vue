@@ -1,6 +1,7 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
+      elevation="10"
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -9,76 +10,49 @@
     >
       <v-list>
         <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
+          :to="home.to"
           router
           exact
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>{{ home.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
+            <v-list-item-title v-text="home.title" />
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+          v-for="(sprint, i) in sprints"
+          :key="i"
+          :to="sprint.to"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>{{ sprint.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="sprint.title" />
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
+      elevation="5"
       :clipped-left="clipped"
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <v-app-bar-nav-icon v-on:click="drawer = !drawer" />
+      
+      <v-toolbar-title v-text="page_title" />
     </v-app-bar>
     <v-main>
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    
     <v-footer
       :absolute="!fixed"
       app
@@ -92,25 +66,43 @@
 export default {
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
+      page_title: 'Twitter Web App',
+      home:
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title:'Home',
+          icon:'mdi-home',
+          to:'/'
         }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      ,
+      sprints: [
+        {
+          id: 1,
+          title: 'Sprint 1',
+          sprint_goal: '',
+          icon:'mdi-numeric-1-box-outline',
+          to: '', //link pagina 
+          user_stories: [
+            {
+              id: 1,
+              title: 'Raccolta tweet',
+              info: 'Come acquirente di un ticket per un evento voglio poter visualizzare l\'hashtag di tale evento, per poter essere aggiornato su nuove attività o cambi di programma',
+              to: 'sprint1_us1'
+            },
+            {
+              id: 2,
+              title: 'Visualizzazione tweet offerte di lavoro',
+              info: 'Come utente voglio poter visualizzare i tweet relativi alle offerte di lavoro in una determinata zona per valutare eventuali nuove opportunità lavorative',
+              to: 'sprint1_us2'
+            },
+            {
+              id: 3,
+              title: 'Visualizzazione tweet emergenza',
+              info: 'Come utente voglio visualizzare tweet relativi alle ultime emergenze in Italia per poter rimanere in allerta',
+              to: 'sprint1_us3'
+            }
+          ]
+        }
+      ]
     }
   }
 }

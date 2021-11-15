@@ -1,4 +1,5 @@
-
+export { default as Appbar } from '../..\\components\\appbar.vue'
+export { default as Navdrawer } from '../..\\components\\navdrawer.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

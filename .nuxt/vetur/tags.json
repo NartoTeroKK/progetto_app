@@ -1,1 +1,8 @@
-{}
+{
+  "Appbar": {
+    "description": "Auto imported from components/appbar.vue"
+  },
+  "Navdrawer": {
+    "description": "Auto imported from components/navdrawer.vue"
+  }
+}

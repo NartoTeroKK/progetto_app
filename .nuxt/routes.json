@@ -1,5 +1,12 @@
 [
   {
+    "name": "sprint1_us1",
+    "path": "/sprint1_us1",
+    "component": "C:\\\\Users\\\\UtenteHP\\\\Documents\\\\UNIBO\\\\3.1_Ingegneria del Software\\\\Vuetify\\\\progetto_app\\\\pages\\\\sprint1_us1.vue",
+    "chunkName": "pages/sprint1_us1",
+    "_name": "_21a18ad0"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\UtenteHP\\\\Documents\\\\UNIBO\\\\3.1_Ingegneria del Software\\\\Vuetify\\\\progetto_app\\\\pages\\\\index.vue",
